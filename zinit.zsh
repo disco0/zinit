@@ -74,6 +74,7 @@ pullopts|debug|null|binary|make|nocompile|notify|reset"
 : ${ZINIT[COMPLETIONS_DIR]:=${ZINIT[HOME_DIR]}/completions}
 : ${ZINIT[SNIPPETS_DIR]:=${ZINIT[HOME_DIR]}/snippets}
 : ${ZINIT[SERVICES_DIR]:=${ZINIT[HOME_DIR]}/services}
+: ${ZINIT[EDITOR]:=vim}
 typeset -g ZPFX
 : ${ZPFX:=${ZINIT[HOME_DIR]}/polaris}
 : ${ZINIT[ALIASES_OPT]::=${${options[aliases]:#off}:+1}}

@@ -3108,8 +3108,8 @@ EOF
     }
 } # ]]]
 # FUNCTION: .zinit-edit [[[
-# Runs $EDITOR on source of given plugin. If the variable is not
-# set then defaults to `vim'.
+# Runs opens source directory of given plugin with editor defined
+# in ZINIT[EDITOR], the $EDITOR variable, or `vim' as default.
 #
 # User-action entry point.
 #
@@ -3136,7 +3136,11 @@ EOF
         fi
     fi
 
-    "${EDITOR:-vim}" "$local_dir"
+    # Split words in whatever $EDITOR parameter value is resolved
+    # so complex editor command forms (like commands with arguments,
+    # e.g. `code-insiders --wait --folder-uri`) don't break
+    ${${=ZINIT[EDITOR]}:-${=EDITOR:-vim}} "$local_dir"
+    
     return 0
 } # ]]]
 # FUNCTION: .zinit-stress [[[
