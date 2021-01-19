@@ -3139,7 +3139,7 @@ EOF
     # Split words in whatever $EDITOR parameter value is resolved
     # so complex editor command forms (like commands with arguments,
     # e.g. `code-insiders --wait --folder-uri`) don't break
-    ${${=ZINIT[EDITOR]}:-${=EDITOR:-vim}} "$local_dir"
+    ${(z@)^${ZINIT[EDITOR]}:-${=EDITOR:-vim}} "$local_dir"
     
     return 0
 } # ]]]
